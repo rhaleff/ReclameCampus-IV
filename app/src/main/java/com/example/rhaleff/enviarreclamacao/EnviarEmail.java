@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 import java.util.Properties;
 
@@ -43,12 +44,6 @@ public class EnviarEmail extends AsyncTask<Void,Void,Void> {
         this.pth = pth;
     }
 
-    public EnviarEmail(Context context, String assunto, Reclamacao r){
-        this.context = context;
-        this.assunto = assunto;
-        this.r = r;
-        this.pth = null;
-    }
 
     @Override
     protected Void doInBackground(Void... params) {
@@ -75,12 +70,14 @@ public class EnviarEmail extends AsyncTask<Void,Void,Void> {
             mm.setSubject(assunto);
             mm.setText(r.toString());
 
-            anexo.setDataHandler(new DataHandler(source));
-            anexo.setFileName(source.getName());
-            mp.addBodyPart(anexo);
-            mm.setContent(mp);
+            if(!pth.equals(" ")){
+                anexo.setDataHandler(new DataHandler(source));
+                anexo.setFileName(source.getName());
+                mp.addBodyPart(anexo);
+                mm.setContent(mp);
+            }
 
-            //olhar o anexo
+
 
         } catch (MessagingException e) {
             e.printStackTrace();

@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="0dp"
         android:orientation="vertical">
 
         <android.support.design.widget.TextInputLayout
@@ -91,16 +91,28 @@
         </android.support.design.widget.TextInputLayout>
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/botaoEnviar"
-        android:layout_marginTop="40dp"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:layout_gravity="center"
-        android:clickable="true"
-        android:elevation="5dp"
-        android:src="@drawable/logo" />
+
+    <com.andexert.library.RippleView
+        android:id="@+id/more"
+        android:layout_width="?android:actionBarSize"
+        android:layout_height="?android:actionBarSize"
+        android:layout_toLeftOf="@+id/more2"
+        android:layout_margin="5dp"
+        rv_centered="true">
+
+        <ImageView
+            android:id="@+id/botaoEnviar"
+            android:layout_marginTop="0dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:elevation="10dp"
+            android:src="@drawable/logo" />
+
+    </com.andexert.library.RippleView>
+
 
 
 
