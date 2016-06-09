@@ -77,8 +77,6 @@ public class EnviarEmail extends AsyncTask<Void,Void,Void> {
                 mm.setContent(mp);
             }
 
-
-
         } catch (MessagingException e) {
             e.printStackTrace();
         }

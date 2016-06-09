@@ -169,10 +169,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         }
     }
-
-    public String getOriginalImagePath() {
-       return "";
-    }
+    
 
 
 }
