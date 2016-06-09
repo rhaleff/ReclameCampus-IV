@@ -11,6 +11,7 @@ import java.util.Properties;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
+import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
@@ -61,6 +62,7 @@ public class EnviarEmail extends AsyncTask<Void,Void,Void> {
 
         MimeMessage mm = new MimeMessage(session);
         MimeBodyPart anexo = new MimeBodyPart();
+        MimeBodyPart texto = new MimeBodyPart();
         FileDataSource source = new FileDataSource(pth);
         Multipart mp = new MimeMultipart();
 
@@ -73,6 +75,8 @@ public class EnviarEmail extends AsyncTask<Void,Void,Void> {
             if(!pth.equals(" ")){
                 anexo.setDataHandler(new DataHandler(source));
                 anexo.setFileName(source.getName());
+                texto.setContent(r.toString(),"text/plain");
+                mp.addBodyPart(texto);
                 mp.addBodyPart(anexo);
                 mm.setContent(mp);
             }
